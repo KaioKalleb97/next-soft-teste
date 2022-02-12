@@ -1,15 +1,13 @@
 const mysqlServer = require('mysql')
 
-const connection = mysqlServer.createConnection({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
+const connection = mysqlServer.createPool({
+    connectionLimit : 10,
+    host:'localhost',
+    user: 'root',
+    password: '',
     database: 'next_soft',
-    port: process.env.MYSQL_PORT
+    port: 3306
 })
-
-
-
 
 exports.post = (req, res, next) => {
     if (req.body == null) {

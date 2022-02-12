@@ -18,15 +18,17 @@ e rode a gora o servidor
 ```bash
 nodemon server.js
 ```
-mas lembre já de ter importado o arquivo SQL para o seu banco de dados para  não ter erro, dentro da pasta api-next-soft o arquivo .env ele tera todas as configurações do servidor:
+mas lembre já de ter importado o arquivo SQL para o seu banco de dados para  não ter erro, dentro da pasta api-next-soft o arquivo RegistroController.js ele tera todas as configurações do servidor:
 
 ```bash
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=
-MYSQL_DATABASE=next_soft
-MYSQL_TEST_DATABASE=next_soft
-MYSQL_PORT=3306
+const connection = mysqlServer.createPool({
+    connectionLimit : 10,
+    host:'localhost',
+    user: 'root',
+    password: '',
+    database: 'next_soft',
+    port: 3306
+})
 ```
 
 ## Usando
